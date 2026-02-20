@@ -1,0 +1,51 @@
+transaction_id,timestamp,sender,sender_account,receiver,receiver_account,amount,currency,type,location,status
+TXN_1001,2026-02-14 09:12:00,John Doe,ACC_82910,Travel Corp,ACC_99211,950000,INR,Transfer,Mumbai,Completed
+TXN_1002,2026-02-14 10:45:00,John Doe,ACC_82910,Travel Corp,ACC_99211,980000,INR,Transfer,Mumbai,Completed
+TXN_1003,2026-02-14 14:22:00,John Doe,ACC_82910,Travel Corp,ACC_99211,970000,INR,Transfer,Mumbai,Completed
+TXN_1004,2026-02-14 16:10:00,Alice Smith,ACC_11223,Bob Jones,ACC_33445,50000,INR,Payment,Delhi,Completed
+TXN_1005,2026-02-15 09:30:00,Unknown Entity,ACC_55555,John Doe,ACC_82910,5000000,INR,Inbound,Dubai,Completed
+TXN_1006,2026-02-15 11:00:00,John Doe,ACC_82910,Shell Co A,ACC_66601,1500000,INR,Transfer,Mumbai,Completed
+TXN_1007,2026-02-15 11:05:00,Shell Co A,ACC_66601,Shell Co B,ACC_66602,1500000,INR,Transfer,Mumbai,Completed
+TXN_1008,2026-02-15 11:10:00,Shell Co B,ACC_66602,John Doe,ACC_82910,1490000,INR,Transfer,Mumbai,Completed
+TXN_1009,2026-02-16 08:00:00,Smurf 1,ACC_70001,Main Acct,ACC_90000,45000,INR,Deposit,Pune,Completed
+TXN_1010,2026-02-16 08:15:00,Smurf 2,ACC_70002,Main Acct,ACC_90000,48000,INR,Deposit,Pune,Completed
+TXN_1011,2026-02-16 08:30:00,Smurf 3,ACC_70003,Main Acct,ACC_90000,42000,INR,Deposit,Pune,Completed
+TXN_1012,2026-02-17 10:00:00,Main Acct,ACC_90000,Offshore LLC,ACC_99999,130000,INR,International,Cayman,Completed
+TXN_1013,2026-02-14 09:15:00,Rajesh Patel,ACC_40101,Priya Sharma,ACC_40201,920000,INR,Transfer,Mumbai,Completed
+TXN_1014,2026-02-14 09:42:00,Rajesh Patel,ACC_40101,Priya Sharma,ACC_40201,890000,INR,Transfer,Mumbai,Completed
+TXN_1015,2026-02-14 10:08:00,Rajesh Patel,ACC_40101,Priya Sharma,ACC_40201,950000,INR,Transfer,Mumbai,Completed
+TXN_1016,2026-02-14 10:35:00,Rajesh Patel,ACC_40101,Priya Sharma,ACC_40201,880000,INR,Transfer,Mumbai,Completed
+TXN_1017,2026-02-14 11:02:00,Rajesh Patel,ACC_40101,Priya Sharma,ACC_40201,960000,INR,Transfer,Mumbai,Completed
+TXN_1018,2026-02-15 14:00:00,Vikram Mehta,ACC_50101,Apex Trading,ACC_50201,7500000,INR,Transfer,Bangalore,Completed
+TXN_1019,2026-02-15 14:05:00,Apex Trading,ACC_50201,Zenith Holdings,ACC_50301,7490000,INR,Transfer,Bangalore,Completed
+TXN_1020,2026-02-15 14:12:00,Zenith Holdings,ACC_50301,Vikram Mehta,ACC_50101,7480000,INR,Transfer,Bangalore,Completed
+TXN_1021,2026-02-16 08:45:00,Smurf 4,ACC_70004,Main Acct,ACC_90000,44000,INR,Deposit,Pune,Completed
+TXN_1022,2026-02-16 09:00:00,Smurf 5,ACC_70005,Main Acct,ACC_90000,47000,INR,Deposit,Pune,Completed
+TXN_1023,2026-02-16 09:10:00,Smurf 6,ACC_70006,Main Acct,ACC_90000,43000,INR,Deposit,Chennai,Completed
+TXN_1024,2026-02-16 09:25:00,Smurf 7,ACC_70007,Main Acct,ACC_90000,46000,INR,Deposit,Chennai,Completed
+TXN_1025,2026-02-16 09:40:00,Smurf 8,ACC_70008,Main Acct,ACC_90000,41000,INR,Deposit,Hyderabad,Completed
+TXN_1026,2026-02-13 10:00:00,Amit Verma,ACC_60101,Grocery Mart,ACC_60201,3500,INR,Payment,Delhi,Completed
+TXN_1027,2026-02-13 14:30:00,Neha Gupta,ACC_60301,Electric Co,ACC_60401,8200,INR,Payment,Mumbai,Completed
+TXN_1028,2026-02-14 07:00:00,Suresh Kumar,ACC_60501,Fuel Station,ACC_60601,2800,INR,Payment,Pune,Completed
+TXN_1029,2026-02-14 12:15:00,Meera Joshi,ACC_60701,Restaurant,ACC_60801,1500,INR,Payment,Bangalore,Completed
+TXN_1030,2026-02-15 08:00:00,Anand Shah,ACC_60901,Amazon India,ACC_61001,15000,INR,Payment,Chennai,Completed
+TXN_1031,2026-02-15 16:30:00,Pooja Reddy,ACC_61101,Pharmacy,ACC_61201,950,INR,Payment,Hyderabad,Completed
+TXN_1032,2026-02-16 11:00:00,Rohan Desai,ACC_61301,Car Service,ACC_61401,5500,INR,Payment,Pune,Completed
+TXN_1033,2026-02-16 15:45:00,Kavita Singh,ACC_61501,School Fees,ACC_61601,25000,INR,Transfer,Delhi,Completed
+TXN_1034,2026-02-17 09:00:00,Arjun Nair,ACC_61701,Landlord,ACC_61801,35000,INR,Transfer,Bangalore,Completed
+TXN_1035,2026-02-17 13:30:00,Deepa Iyer,ACC_61901,Insurance Co,ACC_62001,12000,INR,Payment,Chennai,Completed
+TXN_1036,2026-02-13 18:00:00,Sanjay Kapoor,ACC_62101,Mutual Fund,ACC_62201,100000,INR,Investment,Mumbai,Completed
+TXN_1037,2026-02-14 20:00:00,Ritu Agarwal,ACC_62301,Travel Agent,ACC_62401,75000,INR,Payment,Delhi,Completed
+TXN_1038,2026-02-15 06:30:00,Manish Tiwari,ACC_62501,Hospital,ACC_62601,45000,INR,Payment,Pune,Completed
+TXN_1039,2026-02-16 12:00:00,Sunita Devi,ACC_62701,Jeweller,ACC_62801,200000,INR,Payment,Jaipur,Completed
+TXN_1040,2026-02-17 14:00:00,Anil Sharma,ACC_62901,Electronics,ACC_63001,55000,INR,Payment,Mumbai,Completed
+TXN_1041,2026-02-15 11:01:00,John Doe,ACC_82910,Shell Co A,ACC_66601,980000,INR,Transfer,Mumbai,Completed
+TXN_1042,2026-02-15 11:03:00,John Doe,ACC_82910,Shell Co A,ACC_66601,970000,INR,Transfer,Mumbai,Completed
+TXN_1043,2026-02-15 11:06:00,John Doe,ACC_82910,Shell Co A,ACC_66601,960000,INR,Transfer,Mumbai,Completed
+TXN_1044,2026-02-14 09:18:00,Rajesh Patel,ACC_40101,Quick Trade Ltd,ACC_80101,990000,INR,Transfer,Mumbai,Completed
+TXN_1045,2026-02-14 09:22:00,Rajesh Patel,ACC_40101,Quick Trade Ltd,ACC_80101,970000,INR,Transfer,Mumbai,Completed
+TXN_1046,2026-02-14 09:25:00,Rajesh Patel,ACC_40101,Quick Trade Ltd,ACC_80101,980000,INR,Transfer,Mumbai,Completed
+TXN_1047,2026-02-14 09:28:00,Rajesh Patel,ACC_40101,Quick Trade Ltd,ACC_80101,960000,INR,Transfer,Mumbai,Completed
+TXN_1048,2026-02-17 11:00:00,Offshore LLC,ACC_99999,Cayman Trust,ACC_88001,125000,INR,International,Cayman,Completed
+TXN_1049,2026-02-17 11:30:00,Cayman Trust,ACC_88001,Hidden Acct,ACC_88002,120000,INR,International,Cayman,Completed
+TXN_1050,2026-02-17 12:00:00,Hidden Acct,ACC_88002,Main Acct,ACC_90000,115000,INR,International,Cayman,Completed

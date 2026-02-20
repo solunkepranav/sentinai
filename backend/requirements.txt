@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pandas>=2.2.0
+networkx
+python-multipart
+httpx
+aiofiles
+requests

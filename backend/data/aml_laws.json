@@ -1,0 +1,171 @@
+[
+    {
+        "id": "AML_001",
+        "title": "Structuring / Smurfing",
+        "section": "BSA 31 CFR 1010.314",
+        "description": "Breaking down large transactions into smaller amounts to avoid Currency Transaction Report (CTR) thresholds. Also known as smurfing when multiple individuals are used.",
+        "keywords": [
+            "structuring",
+            "smurfing",
+            "below threshold",
+            "small amounts",
+            "split deposits",
+            "threshold evasion"
+        ]
+    },
+    {
+        "id": "AML_002",
+        "title": "Circular Trading / Round-Tripping",
+        "section": "FATF Recommendation 20",
+        "description": "Funds moving through multiple accounts in a circular pattern only to return to the original source or beneficiary, obscuring the money trail through layering.",
+        "keywords": [
+            "circular",
+            "round trip",
+            "loop",
+            "pass-through",
+            "layering",
+            "round-tripping"
+        ]
+    },
+    {
+        "id": "AML_003",
+        "title": "Rapid Movement of Funds",
+        "section": "PMLA Section 3",
+        "description": "Funds deposited and immediately withdrawn or transferred at unusually high velocity, leaving no economic rationale. Indicative of layering in money laundering.",
+        "keywords": [
+            "velocity",
+            "rapid",
+            "immediate transfer",
+            "layering",
+            "quick movement",
+            "fast transfer"
+        ]
+    },
+    {
+        "id": "AML_004",
+        "title": "High-Risk Jurisdiction Transactions",
+        "section": "FATF High-Risk Countries List",
+        "description": "Transactions involving countries identified by FATF as having strategic deficiencies in their AML/CFT regimes, requiring enhanced due diligence.",
+        "keywords": [
+            "high risk country",
+            "tax haven",
+            "offshore",
+            "jurisdiction",
+            "cayman",
+            "shell company"
+        ]
+    },
+    {
+        "id": "AML_005",
+        "title": "Suspicious Transaction Reporting",
+        "section": "PMLA Section 12",
+        "description": "Every banking company shall furnish suspicious transaction reports to the Financial Intelligence Unit-India (FIU-IND) within 7 days of detection. Failure to report is an offence under Section 13.",
+        "keywords": [
+            "suspicious transaction",
+            "STR",
+            "reporting",
+            "FIU",
+            "filing",
+            "structuring",
+            "smurfing"
+        ]
+    },
+    {
+        "id": "AML_006",
+        "title": "Cash Transaction Report Threshold",
+        "section": "PML Rules 2005, Rule 3",
+        "description": "Cash transactions exceeding Rs. 10 lakhs or its equivalent in foreign currency must be reported. Structuring transactions below this threshold to avoid reporting is a criminal offence.",
+        "keywords": [
+            "cash transaction",
+            "CTR",
+            "threshold",
+            "10 lakh",
+            "below threshold",
+            "structuring",
+            "evasion"
+        ]
+    },
+    {
+        "id": "AML_007",
+        "title": "Offence of Money Laundering",
+        "section": "PMLA Section 3",
+        "description": "Whosoever directly or indirectly attempts to indulge in or knowingly assists or is a party to any process or activity connected with proceeds of crime shall be guilty of money laundering.",
+        "keywords": [
+            "money laundering",
+            "proceeds of crime",
+            "layering",
+            "circular",
+            "shell company",
+            "offshore"
+        ]
+    },
+    {
+        "id": "AML_008",
+        "title": "Penalties for Non-Compliance",
+        "section": "PMLA Section 15",
+        "description": "Failure to maintain records, furnish information, or verify identity of clients shall be punishable with a fine which shall not be less than ten thousand rupees but may extend to one lakh rupees for each failure.",
+        "keywords": [
+            "penalty",
+            "non-compliance",
+            "failure",
+            "record keeping",
+            "KYC"
+        ]
+    },
+    {
+        "id": "AML_009",
+        "title": "Wire Transfer Regulations",
+        "section": "FATF Recommendation 16",
+        "description": "Countries should ensure that financial institutions include required and accurate originator information and required beneficiary information on wire transfers and related messages.",
+        "keywords": [
+            "wire transfer",
+            "SWIFT",
+            "originator",
+            "beneficiary",
+            "international",
+            "cross-border"
+        ]
+    },
+    {
+        "id": "AML_010",
+        "title": "Customer Due Diligence",
+        "section": "FATF Recommendation 10 / RBI KYC Master Direction 2016",
+        "description": "Financial institutions should identify and verify the identity of customers, beneficial owners, and conduct ongoing due diligence. Enhanced due diligence for high-risk customers.",
+        "keywords": [
+            "KYC",
+            "CDD",
+            "due diligence",
+            "identity",
+            "verification",
+            "beneficial owner",
+            "high risk"
+        ]
+    },
+    {
+        "id": "AML_011",
+        "title": "Record Keeping Requirements",
+        "section": "PML Rules 2005, Rule 7",
+        "description": "Every reporting entity shall maintain records of all transactions including domestic and international for a period of five years from the date of transaction.",
+        "keywords": [
+            "record keeping",
+            "five years",
+            "retention",
+            "transaction records",
+            "audit trail"
+        ]
+    },
+    {
+        "id": "AML_012",
+        "title": "FinCEN Advisory on Smurfing",
+        "section": "FinCEN Advisory FIN-2020-A003",
+        "description": "Advisory on detecting and reporting structured transactions where multiple individuals (smurfs) conduct transactions on behalf of others to evade BSA reporting and recordkeeping requirements.",
+        "keywords": [
+            "smurfing",
+            "fan-in",
+            "fan-out",
+            "coordinated deposits",
+            "multiple persons",
+            "smurf"
+        ]
+    }
+]

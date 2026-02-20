@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SentinAI — Compliance Intelligence Platform</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <div class="brand-icon"><i class="fas fa-shield-halved"></i></div>
+            <span class="brand-name">SentinAI</span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-page="dashboard"><i
+                    class="fas fa-chart-line"></i><span>Dashboard</span></a>
+            <a href="#" class="nav-item" data-page="upload"><i class="fas fa-cloud-upload-alt"></i><span>Data
+                    Ingestion</span></a>
+            <a href="#" class="nav-item" data-page="analysis"><i class="fas fa-brain"></i><span>AI Analysis</span></a>
+            <a href="#" class="nav-item" data-page="report"><i class="fas fa-file-shield"></i><span>SAR
+                    Report</span></a>
+            <a href="#" class="nav-item" data-page="audit"><i class="fas fa-scroll"></i><span>Audit Trail</span></a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar"><i class="fas fa-user-shield"></i></div>
+                <div class="user-details">
+                    <span class="user-name">Analyst</span>
+                    <span class="user-role">RBAC: Level 3</span>
+                </div>
+            </div>
+            <div class="offline-badge"><i class="fas fa-lock"></i> Offline Mode</div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <h1 class="page-title" id="pageTitle">Dashboard</h1>
+                <span class="breadcrumb">SentinAI / <span id="breadcrumb">Overview</span></span>
+            </div>
+            <div class="topbar-right">
+                <div class="status-indicator">
+                    <span class="status-dot online"></span>
+                    <span>System Online</span>
+                </div>
+                <div class="status-indicator">
+                    <span class="status-dot" id="ollamaStatus"></span>
+                    <span id="ollamaLabel">Checking LLM...</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- ============ PAGE: DASHBOARD ============ -->
+        <section class="page active" id="page-dashboard">
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon blue"><i class="fas fa-exchange-alt"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="totalTxns">0</span>
+                        <span class="stat-label">Total Transactions</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon red"><i class="fas fa-exclamation-triangle"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="flaggedTxns">0</span>
+                        <span class="stat-label">Flagged Suspicious</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon green"><i class="fas fa-clock"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="timeSaved">90%</span>
+                        <span class="stat-label">Time Saved</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon purple"><i class="fas fa-robot"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="agentCount">3</span>
+                        <span class="stat-label">Active Agents</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Row -->
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-chart-pie"></i> Risk Distribution</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="riskChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-chart-bar"></i> Transaction Volume by Type</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="volumeChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-project-diagram"></i> Anomaly Breakdown</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="anomalyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="activity-card">
+                <div class="card-header">
+                    <h3><i class="fas fa-stream"></i> Recent Agent Activity</h3>
+                    <span class="live-badge"><span class="pulse"></span> LIVE</span>
+                </div>
+                <div class="activity-feed" id="activityFeed">
+                    <div class="activity-empty">
+                        <i class="fas fa-inbox"></i>
+                        <p>No activity yet. Upload data and run analysis to see agent logs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ PAGE: UPLOAD ============ -->
+        <section class="page" id="page-upload">
+            <div class="upload-container">
+                <div class="upload-zone" id="dropZone">
+                    <div class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                    <h2>Secure Data Ingestion</h2>
+                    <p>Drag & drop your CSV/JSON transaction files here</p>
+                    <p class="upload-note"><i class="fas fa-shield-alt"></i> All data stays local. PII is automatically
+                        masked.</p>
+                    <input type="file" id="fileInput" accept=".csv,.json" hidden>
+                    <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">
+                        <i class="fas fa-folder-open"></i> Browse Files
+                    </button>
+                </div>
+
+                <div class="upload-info-cards">
+                    <div class="info-card">
+                        <i class="fas fa-file-csv"></i>
+                        <h4>Supported Formats</h4>
+                        <p>CSV, JSON with columns: transaction_id, timestamp, sender, receiver, amount, type</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-mask"></i>
+                        <h4>PII Masking</h4>
+                        <p>Names are hashed to USER_XXXXXXXX. Accounts masked to XXXX1234.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-database"></i>
+                        <h4>Sample Data</h4>
+                        <button class="btn btn-outline" id="loadSampleBtn">Load Demo Dataset</button>
+                    </div>
+                </div>
+
+                <!-- Preview Table -->
+                <div class="preview-section hidden" id="previewSection">
+                    <div class="card-header">
+                        <h3><i class="fas fa-table"></i> Data Preview (PII Masked)</h3>
+                        <span class="badge" id="rowCount">0 rows</span>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="data-table" id="previewTable">
+                            <thead></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <button class="btn btn-primary btn-lg" id="runAnalysisBtn">
+                        <i class="fas fa-play"></i> Run AI Analysis
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ PAGE: ANALYSIS ============ -->
+        <section class="page" id="page-analysis">
+            <div class="analysis-container">
+                <!-- Loading State -->
+                <div class="analysis-loading hidden" id="analysisLoading">
+                    <div class="agent-pipeline">
+                        <div class="pipeline-step" id="step-ingest">
+                            <div class="step-icon"><i class="fas fa-shield-alt"></i></div>
+                            <div class="step-info">
+                                <span class="step-name">Data Vault</span>
+                                <span class="step-status">PII Masking & Ingestion</span>
+                            </div>
+                            <div class="step-progress">
+                                <div class="progress-bar"></div>
+                            </div>
+                        </div>
+                        <div class="pipeline-connector"><i class="fas fa-arrow-right"></i></div>
+                        <div class="pipeline-step" id="step-investigate">
+                            <div class="step-icon"><i class="fas fa-search"></i></div>
+                            <div class="step-info">
+                                <span class="step-name">Investigator</span>
+                                <span class="step-status">Anomaly Detection</span>
+                            </div>
+                            <div class="step-progress">
+                                <div class="progress-bar"></div>
+                            </div>
+                        </div>
+                        <div class="pipeline-connector"><i class="fas fa-arrow-right"></i></div>
+                        <div class="pipeline-step" id="step-comply">
+                            <div class="step-icon"><i class="fas fa-balance-scale"></i></div>
+                            <div class="step-info">
+                                <span class="step-name">Compliance</span>
+                                <span class="step-status">Law Mapping (RAG)</span>
+                            </div>
+                            <div class="step-progress">
+                                <div class="progress-bar"></div>
+                            </div>
+                        </div>
+                        <div class="pipeline-connector"><i class="fas fa-arrow-right"></i></div>
+                        <div class="pipeline-step" id="step-scribe">
+                            <div class="step-icon"><i class="fas fa-pen-fancy"></i></div>
+                            <div class="step-info">
+                                <span class="step-name">Scribe</span>
+                                <span class="step-status">Narrative Generation</span>
+                            </div>
+                            <div class="step-progress">
+                                <div class="progress-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results State -->
+                <div class="analysis-results hidden" id="analysisResults">
+                    <div class="results-header">
+                        <h2><i class="fas fa-check-circle"></i> Analysis Complete</h2>
+                        <div class="results-actions">
+                            <button class="btn btn-outline" onclick="navigateTo('report')"><i
+                                    class="fas fa-file-alt"></i> View SAR Report</button>
+                            <button class="btn btn-outline" onclick="navigateTo('audit')"><i class="fas fa-scroll"></i>
+                                View Audit Trail</button>
+                        </div>
+                    </div>
+
+                    <!-- Risk Summary Cards -->
+                    <div class="risk-grid">
+                        <div class="risk-card high">
+                            <div class="risk-level">HIGH RISK</div>
+                            <div class="risk-count" id="highRiskCount">0</div>
+                            <div class="risk-label">Transactions</div>
+                        </div>
+                        <div class="risk-card medium">
+                            <div class="risk-level">MEDIUM</div>
+                            <div class="risk-count" id="medRiskCount">0</div>
+                            <div class="risk-label">Transactions</div>
+                        </div>
+                        <div class="risk-card low">
+                            <div class="risk-level">LOW RISK</div>
+                            <div class="risk-count" id="lowRiskCount">0</div>
+                            <div class="risk-label">Transactions</div>
+                        </div>
+                    </div>
+
+                    <!-- Findings -->
+                    <div class="findings-grid">
+                        <div class="finding-card" id="findingStructuring">
+                            <div class="finding-icon"><i class="fas fa-layer-group"></i></div>
+                            <h4>Structuring</h4>
+                            <p class="finding-count">0 patterns</p>
+                            <p class="finding-desc">Multiple transactions below ₹10L threshold</p>
+                        </div>
+                        <div class="finding-card" id="findingCircular">
+                            <div class="finding-icon"><i class="fas fa-sync-alt"></i></div>
+                            <h4>Circular Trading</h4>
+                            <p class="finding-count">0 patterns</p>
+                            <p class="finding-desc">Funds returning to origin via intermediaries</p>
+                        </div>
+                        <div class="finding-card" id="findingFanIn">
+                            <div class="finding-icon"><i class="fas fa-compress-arrows-alt"></i></div>
+                            <h4>Fan-In / Fan-Out</h4>
+                            <p class="finding-count">0 patterns</p>
+                            <p class="finding-desc">Many-to-one or one-to-many flow</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Empty State -->
+                <div class="analysis-empty" id="analysisEmpty">
+                    <i class="fas fa-brain"></i>
+                    <h2>Multi-Agent Analysis Engine</h2>
+                    <p>Upload transaction data first, then run analysis to activate the AI agents.</p>
+                    <button class="btn btn-primary" onclick="navigateTo('upload')"><i
+                            class="fas fa-cloud-upload-alt"></i> Go to Data Ingestion</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ PAGE: SAR REPORT ============ -->
+        <section class="page" id="page-report">
+            <div class="report-container">
+                <!-- Report Panel -->
+                <div class="report-panel">
+                    <div class="card-header">
+                        <h3><i class="fas fa-file-shield"></i> SAR Narrative (AI-Generated)</h3>
+                        <div class="report-actions">
+                            <button class="btn btn-sm btn-outline" id="editReportBtn"><i class="fas fa-edit"></i>
+                                Edit</button>
+                            <button class="btn btn-sm btn-outline" id="approveReportBtn"><i class="fas fa-check"></i>
+                                Approve</button>
+                            <button class="btn btn-sm btn-outline" id="exportReportBtn" onclick="exportReport()"><i
+                                    class="fas fa-download"></i> Export</button>
+                        </div>
+                    </div>
+                    <div class="report-body" id="reportBody" contenteditable="false">
+                        <div class="report-empty">
+                            <i class="fas fa-file-alt"></i>
+                            <p>Run analysis to generate SAR report.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Evidence Panel -->
+                <div class="evidence-panel">
+                    <div class="card-header">
+                        <h3><i class="fas fa-table"></i> Transaction Evidence</h3>
+                        <span class="badge highlight-badge hidden" id="highlightBadge">Hover sentences to see linked
+                            evidence</span>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="data-table evidence-table" id="evidenceTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>From</th>
+                                    <th>To</th>
+                                    <th>Amount</th>
+                                    <th>Type</th>
+                                    <th>Risk</th>
+                                </tr>
+                            </thead>
+                            <tbody id="evidenceBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ PAGE: AUDIT TRAIL ============ -->
+        <section class="page" id="page-audit">
+            <div class="audit-container">
+                <div class="card-header">
+                    <h3><i class="fas fa-scroll"></i> Immutable Audit Trail</h3>
+                    <div class="audit-filters">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="Investigator">Investigator</button>
+                        <button class="filter-btn" data-filter="Compliance">Compliance</button>
+                        <button class="filter-btn" data-filter="Scribe">Scribe</button>
+                    </div>
+                </div>
+                <div class="audit-timeline" id="auditTimeline">
+                    <div class="audit-empty">
+                        <i class="fas fa-scroll"></i>
+                        <p>No audit logs yet. Run analysis to generate chain-of-thought logs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
