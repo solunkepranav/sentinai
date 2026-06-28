@@ -1,7 +1,7 @@
 
 # SentinAI — Privacy-First Compliance Intelligence Platform
 
-**Barclays Hack-o-Hire 2026 | SPIT Mumbai**
+
 
 > Multi-Agent SAR Narrative Generator with Sentence-Backed Forensics
 
